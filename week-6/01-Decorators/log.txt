@@ -1,0 +1,10 @@
+get_low was called at 2018-04-17 13:03:47.924556
+get_low was called at 2018-04-17 13:03:48.291501
+get_low was called at 2018-04-17 13:03:48.482976
+get_low was called at 2018-04-17 13:03:48.643854
+get_low was called at 2018-04-17 13:03:49.211407
+get_low was called at 2018-04-17 13:03:49.535273
+get_low was called at 2018-04-17 13:57:43.749779
+something_heavy was called and took 2.001100778579712 seconds to complete
+something_heavy was called and took 2.002180337905884 seconds to complete
+something_heavy was called and took 2.00 seconds to complete

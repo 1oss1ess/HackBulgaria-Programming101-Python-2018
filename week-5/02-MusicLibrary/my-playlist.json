@@ -1,0 +1,31 @@
+{
+    "name": "my playlist",
+    "repeat": false,
+    "shuffle": false,
+    "songs": [
+        {
+            "title": "Odin",
+            "artist": "Manowar",
+            "album": "The Sons of Odin",
+            "song_length": "0:44"
+        },
+        {
+            "title": "Odin",
+            "artist": "Manowar",
+            "album": "The Sons of Odin",
+            "song_length": "1:33"
+        },
+        {
+            "title": "Warriors Of The World",
+            "artist": "Manowar",
+            "album": "The Sons of Warrior",
+            "song_length": "5:55"
+        },
+        {
+            "title": "The World",
+            "artist": "Manowar",
+            "album": "The Sons of World",
+            "song_length": "1:50:55"
+        }
+    ]
+}

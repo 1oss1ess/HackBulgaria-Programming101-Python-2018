@@ -1,0 +1,73 @@
+First Queries
+
+1.Напишете заявка, която извежда адреса на студио ‘MGM’
+SELECT ADDRESS FROM STUDIO WHERE NAME = 'MGM';
+
+2.Напишете заявка, която извежда рождената дата на актрисата Kim Basinger
+SELECT BIRTHDATE FROM MOVIESTAR WHERE NAME = 'Kim Basinger';
+
+3.Напишете заявка, която извежда имената всички продуценти на филми с нетни активи (networth) над 10 000 000 долара
+SELECT NAME FROM MOVIEEXEC WHERE NETWORTH > 10000000;
+
+4.Напишете заявка, която извежда имената на всички актьори, които са мъже или живеят на Prefect Rd
+SELECT NAME FROM MOVIESTAR WHERE GENDER = 'M' OR ADDRESS = 'Prefect Rd';
+
+5.Добавате нова филмова звезда 'Zahari Baharov', с адрес и рожденна дата по ваш избор.
+INSERT INTO MOVIESTAR VALUES ('Zahari Baharov', 'Castle Black', 'M', '722-01-07');
+
+6.Изтрийте всички студия, които имат в адреса си числото 5.
+DELETE FROM STUDIO WHERE ADDRESS LIKE '%5%';
+
+7.Променете студио да бъде "Fox" на тези филми, които в имената си имат 'star.
+UPDATE MOVIE SET STUDIONAME = 'Fox' WHERE TITLE LIKE '%star%';
+
+
+
+Relations
+
+1.Напишете заявка, която извежда имената на актьорите мъже участвали в ‘Terms of Endearment’
+SELECT STARNAME FROM STARSIN INNER JOIN MOVIESTAR ON STARSIN.STARNAME = MOVIESTAR.NAME WHERE MOVIESTAR.GENDER = 'M' AND STARSIN.MOVIETITLE = 'Terms of Endearment';
+
+2.Напишете заявка, която извежда имената на актьорите участвали във филми продуцирани от ‘MGM’през 1995 г.
+SELECT STARNAME FROM STARSIN INNER JOIN MOVIE ON STARSIN.MOVIETITLE = MOVIE.TITLE WHERE MOVIE.YEAR = '1995' AND MOVIE.STUDIONAME = 'MGM';
+
+3.Добавете колона "име на президент"на таблицата Студио и съответно и задайте стойности.Напишете заявка, която извежда името на президента на ‘MGM’
+ALTER TABLE STUDIO ADD COLUMN PRESIDENTNAME VARCHAR(255);
+UPDATE STUDIO SET PRESIDENTNAME = 'Pesho Petrov' WHERE PRESC = '1';
+UPDATE STUDIO SET PRESIDENTNAME = 'Gosho Petrov' WHERE PRESC = '3';
+SELECT PRESIDENTNAME FROM STUDIO WHERE NAME = 'MGM';
+
+4.Напишете заявка, която извежда имената на всички филми с дължина по-голяма от дължината на филма ‘Gone With the Wind’
+SELECT TITLE FROM MOVIE WHERE LENGTH(TITLE) > LENGTH('Gone With the Wind');
+
+5.Напишете заявка, която извежда имената на тези продукции на стойност по- голяма от ‘Merv Griffin’
+SELECT * FROM MOVIEEXEC WHERE NETWORTH > (SELECT NETWORTH FROM MOVIEEXEC WHERE NAME = 'Merv Griffin');
+
+
+###################################################################################################################################
+
+OIN, LEFT JOIN, GROUP BY, HAVING
+Заявки за базата от данни Movies
+
+• Напишете заявка, която извежда името на актьора и годината на първия филм, в който е участвал.
+SELECT STARNAME, MIN(MOVIEYEAR) AS FIRSTYEAR 
+FROM STARSIN 
+GROUP BY STARNAME;
+
+• Напишете заявка, която извежда името на актьора и на колко години е бил когато е направил дебюта си.
+SELECT STARSIN.STARNAME, (MIN(MOVIEYEAR) - strftime('%Y', MOVIESTAR.BIRTHDATE)) AS YEAR 
+FROM STARSIN 
+INNER JOIN MOVIESTAR ON STARSIN.STARNAME = MOVIESTAR.NAME 
+GROUP BY MOVIESTAR.NAME;
+
+• Напишете заявка, която извежда името на студиото, адреса на студиото и средната дължина на филмите направени в него.
+SELECT NAME, ADDRESS, sum(MOVIE.LENGTH)/count(NAME) AS AVG_MOVIE_LENGTH 
+FROM STUDIO 
+INNER JOIN MOVIE ON STUDIO.NAME = MOVIE.STUDIONAME 
+GROUP BY STUDIO.NAME;
+
+SELECT NAME, ADDRESS, avg(MOVIE.LENGTH) AS AVG_MOVIE_LENGTH 
+FROM STUDIO 
+INNER JOIN MOVIE ON STUDIO.NAME = MOVIE.STUDIONAME 
+GROUP BY STUDIO.NAME;
+

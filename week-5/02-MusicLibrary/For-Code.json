@@ -1,0 +1,25 @@
+{
+    "name": "For Code",
+    "repeat": true,
+    "shuffle": true,
+    "songs": [
+        {
+            "title": "Odin",
+            "artist": "Manowar",
+            "album": "Odin",
+            "song_length": "3:44"
+        },
+        {
+            "title": "The Sons of Odin",
+            "artist": "Manowar",
+            "album": "The Sons of Odin",
+            "song_length": "6:26"
+        },
+        {
+            "title": "Ala bala",
+            "artist": "Gh",
+            "album": "ala bala",
+            "song_length": "5:22"
+        }
+    ]
+}

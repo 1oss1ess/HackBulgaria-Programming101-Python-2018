@@ -1,0 +1,45 @@
+[
+    [
+        "Race #1",
+        "###### START ######",
+        "Ivo - 6",
+        "Pavlin - 8",
+        "Unfortunately, Rado has crashed.",
+        "Unfortunately, Slavqna has crashed."
+    ],
+    [
+        "Race #2",
+        "###### START ######",
+        "Rado - 8",
+        "Slavqna - 4",
+        "Pavlin - 6",
+        "Unfortunately, Ivo has crashed."
+    ],
+    [
+        "Race #3",
+        "###### START ######",
+        "Ivo - 4",
+        "Slavqna - 8",
+        "Pavlin - 6",
+        "Unfortunately, Rado has crashed."
+    ],
+    "Total championship rage:",
+    [
+        [
+            "Pavlin",
+            20
+        ],
+        [
+            "Slavqna",
+            12
+        ],
+        [
+            "Ivo",
+            10
+        ],
+        [
+            "Rado",
+            8
+        ]
+    ]
+]
